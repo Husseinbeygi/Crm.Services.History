@@ -1,14 +1,16 @@
-﻿namespace Domain.Seedwork
+﻿using Domain.Contracts;
+
+namespace Domain.Seedwork
 {
 	public abstract class Entity : object,
-		Dtat.Seedwork.Abstractions.IEntity<System.Guid>
+		IEntity<System.Guid>
 	{
 		public Entity() : base()
 		{
 			Ordering = 10_000;
 
 			InsertDateTime =
-				Dtat.Utility.Now;
+						Utility.Now;
 
 			Id =
 				System.Guid.NewGuid();

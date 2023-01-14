@@ -10,11 +10,11 @@
 		{
 			get
 			{
-				var result =
-					System.DateTime.Now;
-
 				//var result =
-				//	System.DateTime.UtcNow;
+				//	System.DateTime.Now;
+
+				var result =
+					System.DateTime.UtcNow;
 
 				return result;
 			}
