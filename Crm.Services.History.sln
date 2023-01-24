@@ -4,22 +4,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.5.33209.295
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{DCB3E312-9420-48E6-A768-F95CA1B24BCE}"
+	ProjectSection(SolutionItems) = preProject
+		src\Presentation\Program.cs = src\Presentation\Program.cs
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Domain\Domain.csproj", "{717B8A4C-53BE-4F04-8FB8-F0311432827A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Domain\Domain.csproj", "{717B8A4C-53BE-4F04-8FB8-F0311432827A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{F5DDD5DB-E837-42BE-AA27-2F31A407E903}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{A0DF8668-A549-4771-B657-9E024CA125A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "src\Shared\ViewModels\ViewModels.csproj", "{A8B5D93D-5C63-46F1-B8B1-7770B099C075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModels", "src\Shared\ViewModels\ViewModels.csproj", "{A8B5D93D-5C63-46F1-B8B1-7770B099C075}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "src\Shared\Resources\Resources.csproj", "{C4B0B801-906A-455C-A18A-3BE9174564C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resources", "src\Shared\Resources\Resources.csproj", "{C4B0B801-906A-455C-A18A-3BE9174564C5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "src\Persistence\Persistence.csproj", "{3FA6CB2F-5832-4A02-9167-8D0E53354D39}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "src\Presentation\Server.csproj", "{36AA1D7A-A3E8-49D1-8F01-7E8DE7703960}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Application\Application.csproj", "{B5AEA120-5047-466C-AFD3-45BA0A919455}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\Application\Application.csproj", "{B5AEA120-5047-466C-AFD3-45BA0A919455}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{F924752D-4CAA-45F3-BBD2-37CDF6A8520B}"
 EndProject

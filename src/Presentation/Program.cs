@@ -1,17 +1,39 @@
+using Cyrus.Mongodb;
+using Cyrus.Mongodb.Contracts;
+using Cyrus.Mongodb.Repository;
+using Domain;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
+using MongoDB.Driver;
+using Persistence;
+using System.Collections;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-	.AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//	.AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+var services = builder.Services;
+services.AddControllers();
+services.AddEndpointsApiExplorer();
+services.AddSwaggerGen();
+
+services.AddMongoDb(
+x => {
+	x.WithConnectionString("mongodb://localhost:27017");
+	x.WithDatabase("History");
+	return x;
+})
+.AddMongoRepository<Post>("posts");
+
+
+services.AddTransient<IMongoRepository<Post>>(opt =>
+{
+	var database = opt.GetRequiredService<IMongoDatabase>();
+	return new PostRepository(database, "posts");
+});
 
 var app = builder.Build();
 

@@ -8,11 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Identity.Web" Version="1.16.0"/>
+    <PackageReference Include="Microsoft.Identity.Web" Version="1.16.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Persistence\Persistence.csproj" />
+    <ProjectReference Include="..\Shared\ViewModels\ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

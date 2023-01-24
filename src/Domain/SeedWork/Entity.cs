@@ -13,7 +13,7 @@ namespace Domain.Seedwork
 						Utility.Now;
 
 			Id =
-				System.Guid.NewGuid();
+				Cyrus.Types.Guid.UuidCreateSequentialComb();
 		}
 
 		// **********

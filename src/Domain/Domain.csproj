@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Cyrus.DDD" Version="1.0.1" />
+    <PackageReference Include="Cyrus.Types" Version="1.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Shared\Resources\Resources.csproj" />
   </ItemGroup>
 

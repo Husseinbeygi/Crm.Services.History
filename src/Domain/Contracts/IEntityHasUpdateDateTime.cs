@@ -2,7 +2,7 @@
 {
 	public interface IEntityHasUpdateDateTime
 	{
-		DateTime UpdateDateTime { get; }
+		public DateTime ModifiedDateTime { get; set; }
 
 		void SetUpdateDateTime();
 	}
