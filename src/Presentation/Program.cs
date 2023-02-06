@@ -1,13 +1,7 @@
+using Application.Consumers;
 using Cyrus.Mongodb;
-using Cyrus.Mongodb.Contracts;
-using Cyrus.Mongodb.Repository;
 using Domain;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Identity.Web;
-using MongoDB.Driver;
-using Persistence;
-using System.Collections;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,10 +23,35 @@ x => {
 .AddMongoRepository<Post>("posts");
 
 
-services.AddTransient<IMongoRepository<Post>>(opt =>
+
+//services.AddTransient<IMongoRepository<Post>>(opt =>
+//{
+//	var database = opt.GetRequiredService<IMongoDatabase>();
+//	return new PostRepository(database, "posts");
+//});
+
+services.AddMassTransit(x =>
 {
-	var database = opt.GetRequiredService<IMongoDatabase>();
-	return new PostRepository(database, "posts");
+	x.SetKebabCaseEndpointNameFormatter();	
+	x.AddConsumer<HistoryMessageConsumer>();
+	x.UsingRabbitMq((context, cfg) =>
+	{
+
+		cfg.Host("localhost", "/", h =>
+		{
+			h.Username("guest");
+			h.Password("guest");
+		});
+
+		cfg.Durable = false;
+
+		//cfg.ReceiveEndpoint("HistoryMicroservice",c =>
+		//{
+		//	c.ConfigureConsumer<HistoryMessageConsumer>(context);
+		//});
+		
+		cfg.ConfigureEndpoints(context);
+	});
 });
 
 var app = builder.Build();

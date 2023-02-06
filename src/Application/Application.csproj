@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Cyrus.Mongodb" Version="1.0.3" />
+    <PackageReference Include="Mapster" Version="7.3.0" />
+    <PackageReference Include="MassTransit" Version="8.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Shared\Messages\Messages.csproj" />
+    <ProjectReference Include="..\Shared\ViewModels\ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>
